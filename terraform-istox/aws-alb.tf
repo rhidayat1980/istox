@@ -6,13 +6,11 @@ resource "aws_lb" "istox_aws_lb" {
   security_groups    = ["${aws_security_group.webservers.id}"]
   idle_timeout    = 60
   enable_deletion_protection = true
-
   access_logs {
     bucket  = "${aws_s3_bucket.lb_logs.bucket}"
     prefix  = "istox_lb"
     enabled = true
   }
-
   tags = {
     Name = "istox_aws-lb"
   }
