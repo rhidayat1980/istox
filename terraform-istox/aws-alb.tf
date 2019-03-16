@@ -1,5 +1,5 @@
-resource "aws_lb" "istox_aws-lb" {
-  name               = "istox_aws-lb"
+resource "aws_lb" "istox_aws_lb" {
+  name               = "istox_aws_lb"
   internal           = false
   load_balancer_type = "application"
   subnets            = ["${aws_subnet.public_subnet.*.id}"]
@@ -42,7 +42,7 @@ resource "aws_lb_target_group" "alb_target_group" {
 }
 
 resource "aws_lb_listener" "alb_listener" {
-  load_balancer_arn = "${aws_lb.istox_aws-lb.arn}"
+  load_balancer_arn = "${aws_lb.istox_aws_lb.arn}"
   port              = 80
   protocol          = "http"
 
