@@ -1,11 +1,3 @@
-# resource "aws_s3_bucket" "b" {
-#   bucket = "mybucket"
-#   acl    = "private"
-
-#   tags = {
-#     Name = "My bucket"
-#   }
-# }
 
 locals {
   s3_origin_id = "myS3Origin"
@@ -32,7 +24,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     prefix          = "myprefix"
   }
 
-  aliases = ["mysite.example.com", "yoursite.example.com"]
+  aliases = ["mysite.istox.com", "yoursite.istox.com"]
 
   default_cache_behavior {
     allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
@@ -57,7 +49,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   # Cache behavior with precedence 1
   ordered_cache_behavior {
     path_pattern     = "/istox-testing/*"
-    allowed_methods  = ["GET", "HEAD", "OPTIONS"]
+    allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
     cached_methods   = ["GET", "HEAD"]
     target_origin_id = "${local.s3_origin_id}"
 
