@@ -1,8 +1,11 @@
 resource "aws_s3_bucket" "lb_logs" {
   bucket = "lb_logs"
-  acl    = "public-read"
-  policy = "${file("s3_public.json")}"
+  acl    = "private"
 }
 
+resource "aws_s3_bucket" "istox-testing" {
+  bucket = "istox-testing"
+  acl    = "public-read"
+}
 
 

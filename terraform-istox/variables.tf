@@ -25,16 +25,4 @@ variable "private_subnet_cidr_block" {
 	default = ["10.0.10.0/24", "10.0.11.0/24", "10.0.12.0/24"]
 }
 
-variable "ami" {
-  description = "Amazon Linux AMI"
-  default = "ami-4fffc834"
-}
 
-variable "bastion_host_public_key" {
-   description = "Bastion host public key"
-	default = "~/.ssh/bastion_host_keypair.pub"
-}
-
-variable "instance_type" {
-  default = "t2.nano"
-}
