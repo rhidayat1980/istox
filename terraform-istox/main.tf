@@ -21,6 +21,8 @@ terraform {
 #-------------------------------
 resource "aws_vpc" "istox_vpc" {
   cidr_block = "${var.vpc_cidr_block}"
+	enable_dns_hostnames = true
+	enable_dns_hostnames = true
 
   tags = {
     Name = "istox-vpc"
